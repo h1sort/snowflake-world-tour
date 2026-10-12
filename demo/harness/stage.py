@@ -59,6 +59,8 @@ DEFAULT_QUESTION = (
     "Por rol, ¿qué porcentaje le daría a un agente permiso de actuar en producción? "
     "Solo cuenta a quien respondió rol y P3."
 )
+DEFAULT_MODEL = "claude-sonnet-5"      # igual que el agente (03_agent.sql)
+FALLBACK_MODEL = "claude-sonnet-4-5"   # el Claude con más cobertura regional
 MIN_N = 5
 MOCK_GROUP = "7F3A9C1E5B"  # mismo grupo que los fixtures d1_* del puente
 PERMISO_SI = ("Sí", "Sí, con aprobación humana")
@@ -160,7 +162,7 @@ def redact(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 def env(name: str, default: str | None = None, *, required: bool = False) -> str:
-    value = os.environ.get(name, default)
+    value = os.environ.get(name) or default  # una variable vacía en .env cuenta como no definida
     if required and not value:
         raise StageError(f"falta {name} en demo/.env (ver demo/.env.example)")
     return value or ""
@@ -407,6 +409,7 @@ def build_agent_prompt(question: str, cutoff: str) -> str:
 
 def clean_markdown(text: str) -> str:
     """Solo para mostrar en pantalla (las invariantes usan el texto original)."""
+    text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)  # el SQL ya se mostró arriba
     text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
     text = re.sub(r"^#{1,6}\s*", "", text, flags=re.MULTILINE)
     return text.replace("`", "")
@@ -432,7 +435,7 @@ def parse_markdown_table(text: str) -> tuple[list[str], list[list]]:
 
 def fmt_cell(col: str, value: Any, pct_scale: float = 1.0) -> str:
     if value is None:
-        return "—"
+        return "·"
     num = _num(value)
     if num is None:
         return str(value)
@@ -600,6 +603,7 @@ def parse_agent_table(cols: list[str], rows: list[list]) -> dict | None:
             "den": _num(r[den_i]) if den_i is not None and den_i < len(r) else None,
             "num": _num(r[num_i]) if num_i is not None and num_i < len(r) else None,
             "pct": _num(r[pct_i]) if pct_i is not None and pct_i < len(r) else None,
+            "pct_dec": _decimals(r[pct_i]) if pct_i is not None and pct_i < len(r) else 0,
             "celdas": [str(c) for c in r if isinstance(c, str)],
         }
         if _norm(label) in TOTAL_LABELS:
@@ -610,11 +614,18 @@ def parse_agent_table(cols: list[str], rows: list[list]) -> dict | None:
             "tiene_num": num_i is not None, "tiene_pct": pct_i is not None}
 
 
-def _pct_ok(pct: float, num: float, den: float) -> bool:
+def _decimals(raw: Any) -> int:
+    m = re.search(r"\.(\d+)", str(raw))
+    return len(m.group(1)) if m else 0
+
+
+def _pct_ok(pct: float, num: float, den: float, dec: int = 1) -> bool:
+    """El porcentaje debe cuadrar con num/den, como fracción (0-1) o como % (0-100), al redondeo que trae."""
     if den <= 0:
         return False
     exp = num / den
-    return abs(pct - exp) <= 0.006 or abs(pct - 100 * exp) <= 0.6
+    tol = 0.5 * 10 ** -dec + 1e-9
+    return abs(pct - 100 * exp) <= tol or abs(pct - exp) <= min(tol, 0.05)
 
 
 def inv_denominador(ask: dict, recalc: dict) -> dict:
@@ -636,7 +647,7 @@ def inv_denominador(ask: dict, recalc: dict) -> dict:
             problems.append(f"{label}: denominador agente {_fmt(row['den'])} vs recalculado {rc['den']}")
         if row["num"] is not None and int(row["num"]) != rc["num"]:
             problems.append(f"{label}: numerador agente {_fmt(row['num'])} vs recalculado {rc['num']}")
-        if row["pct"] is not None and not _pct_ok(row["pct"], rc["num"], rc["den"]):
+        if row["pct"] is not None and not _pct_ok(row["pct"], rc["num"], rc["den"], row["pct_dec"]):
             problems.append(f"{label}: el porcentaje no cuadra con {rc['num']}/{rc['den']}")
     known = {_norm(k) for k in expected}
     for key, row in parsed["grupos"].items():
@@ -654,7 +665,7 @@ def inv_denominador(ask: dict, recalc: dict) -> dict:
 
 
 def _fmt(v: Any) -> str:
-    return "—" if v is None else (str(int(v)) if float(v).is_integer() else f"{v:.1f}")
+    return "·" if v is None else (str(int(v)) if float(v).is_integer() else f"{v:.1f}")
 
 
 def inv_muestra(ask: dict, recalc: dict) -> dict:
@@ -709,14 +720,23 @@ def inv_identificadores(ask: dict) -> dict:
     return {"id": "identificadores", "titulo": title, "ok": True, "detalle": "ningún token tipo VOTER_KEY"}
 
 
+TS_RE = re.compile(r"\b\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(?::\d{2})?")
+
+
 def inv_corte(ask: dict) -> dict:
+    """Corte visible: el de la aplicación, o el corte_datos propio del agente (último voto cargado)."""
     title = "corte visible"
     cutoff = str(ask.get("corte_utc", ""))
-    hay = f"{ask.get('respuesta', '')}\n{ask.get('sql', '')}"
+    text = str(ask.get("respuesta", ""))
+    hay = f"{text}\n{ask.get('sql', '')}"
     forms = {cutoff[:16], cutoff[:16].replace(" ", "T")}
     if cutoff and any(f in hay for f in forms):
         return {"id": "corte", "titulo": title, "ok": True, "detalle": f"{cutoff} UTC aparece en la respuesta"}
-    return {"id": "corte", "titulo": title, "ok": False, "detalle": f"la respuesta no menciona el corte {cutoff} UTC"}
+    own = TS_RE.search(text)
+    if own:
+        return {"id": "corte", "titulo": title, "ok": True,
+                "detalle": f"la respuesta declara su propio corte: {own.group()} UTC"}
+    return {"id": "corte", "titulo": title, "ok": False, "detalle": "la respuesta no declara ningún corte (fecha y hora UTC)"}
 
 
 def check_invariants(ask: dict, recalc: dict) -> list[dict]:
@@ -785,16 +805,26 @@ class SfSession:
 
         logging.getLogger("snowflake.connector").setLevel(logging.CRITICAL)
         self.role = env("SNOWFLAKE_ROLE_AGENT", "SWT_AGENT_RO")
-        try:
-            self.conn = snowflake.connector.connect(
-                account=account_id(), user=env("SNOWFLAKE_USER", required=True),
-                password=env("SNOWFLAKE_PAT", required=True),  # un PAT se presenta como password
-                role=self.role, warehouse=env("SNOWFLAKE_WAREHOUSE", "SWT_WH"),
-                database=SF_DATABASE, schema=SF_SCHEMA, login_timeout=20, network_timeout=90,
-            )
-        except Exception as exc:  # noqa: BLE001
-            log.exception("snowflake connect failed")
-            raise StageError(f"no se pudo conectar a Snowflake: {redact(str(exc))[:160]}") from None
+        pat = env("SNOWFLAKE_PAT", required=True)
+        base = dict(account=account_id(), user=env("SNOWFLAKE_USER", required=True), role=self.role,
+                    warehouse=env("SNOWFLAKE_WAREHOUSE", "SWT_WH"), database=SF_DATABASE, schema=SF_SCHEMA,
+                    login_timeout=20, network_timeout=90, session_parameters={"QUERY_TAG": "swt-harness"})
+        # Igual que el puente: documentado = PAT como `password`; conectores nuevos: authenticator=PROGRAMMATIC_ACCESS_TOKEN.
+        mode = env("SNOWFLAKE_PAT_AUTH", "auto").lower()
+        attempts = {"password": [dict(password=pat)],
+                    "token": [dict(authenticator="PROGRAMMATIC_ACCESS_TOKEN", token=pat)]}.get(
+            mode, [dict(password=pat), dict(authenticator="PROGRAMMATIC_ACCESS_TOKEN", token=pat)])
+        last: Exception | None = None
+        self.conn = None
+        for extra in attempts:
+            try:
+                self.conn = snowflake.connector.connect(**base, **extra)
+                break
+            except Exception as exc:  # noqa: BLE001 - probar el otro método de PAT
+                last = exc
+        if self.conn is None:
+            log.error("snowflake connect failed: %s", redact(str(last)))
+            raise StageError(f"no se pudo conectar a Snowflake: {redact(str(last))[:160]}")
         self.cur = self.conn.cursor()
         actual = self.cur.execute("SELECT CURRENT_ROLE()").fetchone()[0]
         if str(actual).upper() != self.role.upper():
@@ -829,8 +859,8 @@ def recalc_from_fixture(fx: dict) -> dict:
 
 def ai_complete_json(sf: SfSession, prompt: str, schema: dict) -> tuple[dict, str]:
     """AI_COMPLETE con response_format. Prueba CORTEX_MODEL y luego CORTEX_MODEL_FALLBACK."""
-    models = [env("CORTEX_MODEL", "claude-sonnet-4-6")]
-    fb = env("CORTEX_MODEL_FALLBACK", "llama3.3-70b")
+    models = [env("CORTEX_MODEL", DEFAULT_MODEL)]
+    fb = env("CORTEX_MODEL_FALLBACK", FALLBACK_MODEL)
     if fb and fb not in models:
         models.append(fb)
     fmt = sf_literal({"type": "json", "schema": schema})

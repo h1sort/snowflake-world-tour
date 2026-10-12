@@ -188,6 +188,24 @@ def test_cutoff_must_be_present():
     assert by_id(stage.check_invariants(iso, RECALC))["corte"]["ok"]
 
 
+def test_agent_own_corte_datos_is_accepted_as_cutoff():
+    own = ask_with(respuesta="Corte de datos: 2026-10-13 17:03:41 UTC\n- Otro: muestra insuficiente", sql="select 1")
+    inv = by_id(stage.check_invariants(own, RECALC))["corte"]
+    assert inv["ok"] and "17:03:41" in inv["detalle"]
+
+
+def test_fraction_with_agent_rounding_is_accepted():
+    # pct_permiso del modelo semántico llega como fracción 0-1, a veces redondeada a 2 o 1 decimales
+    for decimals in (4, 2, 1):
+        ok = ask_with(filas=[[r[0], r[1], r[2], f"{int(r[2]) / int(r[1]):.{decimals}f}"] for r in GOOD_ASK["filas"]])
+        assert by_id(stage.check_invariants(ok, RECALC))["denominador"]["ok"], decimals
+
+
+def test_empty_env_value_uses_default(monkeypatch):
+    monkeypatch.setenv("CORTEX_MODEL", "")
+    assert stage.env("CORTEX_MODEL", stage.DEFAULT_MODEL) == "claude-sonnet-5"
+
+
 def test_validate_verdict_is_strict():
     assert stage.validate_verdict({"veredicto": " Pasa ", "evidencia": ["a"], "motivo": "m"})["veredicto"] == "pasa"
     for bad in ({"veredicto": "aprobar", "evidencia": [], "motivo": ""},
@@ -491,7 +509,7 @@ def test_real_judge_recomputes_with_readonly_role_and_calls_ai_complete(monkeypa
     assert len(ai) == 1
     sql, params = ai[0]
     assert "response_format => {'type': 'json', 'schema': {" in sql and "'required': ['veredicto', 'evidencia', 'motivo']" in sql
-    assert params[0] == "claude-sonnet-4-6" and "Corte (UTC)" in params[1]
+    assert params[0] == "claude-sonnet-5" and "Corte (UTC)" in params[1]
     judge = json.loads(stage.LAST_JUDGE.read_text())
     assert judge["veredicto"] == "pasa" and not judge["mock"] and conn.closed
     out = capsys.readouterr().out
@@ -521,15 +539,37 @@ def test_real_judge_falls_back_to_second_model(monkeypatch, capsys):
 
     def ai(sql, params):
         calls.append(params[0])
-        if params[0] == "claude-sonnet-4-6":
+        if params[0] == "claude-sonnet-5":
             raise RuntimeError("model not available in region")
         return {"veredicto": "pasa", "evidencia": ["ok"], "motivo": "m"}  # VARIANT ya parseado
 
     install_fake_connector(monkeypatch, FakeConn(ai=ai))
     stage.write_json(stage.LAST_ASK, GOOD_ASK)
     assert stage.main(["judge"]) == 0
-    assert calls == ["claude-sonnet-4-6", "llama3.3-70b"]
+    assert calls == ["claude-sonnet-5", "claude-sonnet-4-5"]
     assert json.loads(stage.LAST_JUDGE.read_text())["veredicto"] == "pasa"
+
+
+def test_pat_auth_falls_back_to_authenticator_token(monkeypatch):
+    import types
+    attempts = []
+    connector = types.ModuleType("snowflake.connector")
+
+    def connect(**kw):
+        attempts.append(kw)
+        if "password" in kw:
+            raise RuntimeError("password auth not accepted")
+        return FakeConn()
+
+    connector.connect = connect
+    pkg = types.ModuleType("snowflake")
+    pkg.connector = connector
+    monkeypatch.setitem(sys.modules, "snowflake", pkg)
+    monkeypatch.setitem(sys.modules, "snowflake.connector", connector)
+    session = stage.SfSession()
+    assert [("password" in a, a.get("authenticator")) for a in attempts] == [(True, None), (False, "PROGRAMMATIC_ACCESS_TOKEN")]
+    assert attempts[1]["token"] == SECRET_PAT and attempts[1]["session_parameters"] == {"QUERY_TAG": "swt-harness"}
+    session.close()
 
 
 def test_session_refuses_to_run_as_the_wrong_role(monkeypatch, capsys):
