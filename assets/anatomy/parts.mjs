@@ -545,10 +545,11 @@ export function makeParts(k, P) {
     for (let i = 0; i < 4; i++) {
       const x = HOLE_DX[i];
       out.push(`<g data-part="hole${i}"><path class="iso-shade" data-shade="0" d="${topRing(x, HOLE_Y, 2.6, zt, 18)}"/>${L(topRing(x, HOLE_Y, 2.6, zt, 18), { tone: "hi" })}</g>`);
-      out.push(`<g data-part="blank${i}" style="display:none">${L(k.lineOnTop([x - 1.4, HOLE_Y], [x + 1.4, HOLE_Y], zt, P), { tone: "lo" })}</g>`);
+      out.push(`<g data-part="blank${i}" style="display:none">${L(topRing(x, HOLE_Y, 2.6, zt, 18), { tone: "faint" })}${dots3([[x, HOLE_Y, zt]], { size: 0.5, tone: "lo" })}</g>`);
     }
     out.push(L(k.lineOnTop([HOLE_DX[0] - 4.5, HOLE_Y - 4.4], [HOLE_DX[3] + 4.5, HOLE_Y - 4.4], zt, P), { tone: "faint" }));
     out.push(L(k.lineOnTop([HOLE_DX[0] - 4.5, HOLE_Y + 4.4], [HOLE_DX[3] + 4.5, HOLE_Y + 4.4], zt, P), { tone: "faint" }));
+    out.push(dots3([[HOLE_DX[0] - 4.5, HOLE_Y - 4.4, zt], [HOLE_DX[3] + 4.5, HOLE_Y - 4.4, zt], [HOLE_DX[0] - 4.5, HOLE_Y + 4.4, zt], [HOLE_DX[3] + 4.5, HOLE_Y + 4.4, zt]], { size: 0.4 }));
     return `<g class="ticket ${cls}">${out.join("")}</g>`;
   }
 
