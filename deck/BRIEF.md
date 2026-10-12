@@ -54,6 +54,9 @@ The slide files keep their template names. **Deck position → file:**
   2. En los últimos 7 días, ¿usaste IA para trabajar con datos? · Sí / No
   3. ¿Le darías a un agente permiso de actuar en producción? · Sí / Sí, con aprobación humana / No
 - **The live Ask question:** "Por rol, ¿qué porcentaje le daría a un agente permiso de actuar en producción? Solo cuenta a quien respondió rol y P3."
+- **Definitions the Semantic View must encode:** "permiso" = P3 is "Sí" or "Sí, con aprobación humana"; denominator = browsers that answered both P1 and P3; a missing answer is never a "No".
+- **Judge verdict values:** `pasa | revisar | rechazar`. Only `pasa` unlocks Act. (Not "aprobar": that collides with "definición aprobada" and "aprobación humana".)
+- **Names used consistently:** "loader incremental", "Control de la aplicación" (architecture) / "la aplicación" (Act slide).
 
 ## Slide by slide (timings total 13:20, 1:40 buffer)
 
