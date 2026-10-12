@@ -97,8 +97,8 @@ Title: **Ask: ¿cuántos clientes activos tenemos?** Tag **Ilustrativo**. Left c
 Notes: then LIVE: ask the agent the poll question (exact wording above). Point at denominators: someone who skipped P3 is not a "No". Show the SQL it ran, the cutoff, numerators and denominators. If the sample is tiny, say so; don't invent findings. `Si falla:` recording.
 
 ### 9 · Judge: invariantes (slide14.xml, dotted wave 2): C · 7:35–9:20 (includes LIVE)
-Title: **Judge: agencia local, invariantes globales**. Two zones. Left "Invariantes (código)": ✓ denominador = respuestas válidas · ✓ n ≥ 5 por grupo o "muestra insuficiente" · ✓ sin identificadores · ✓ corte visible. Right "Juicio (modelo)": a typed verdict card `veredicto: aprobar | revisar | rechazar` + `evidencia: […]`, with the line **Una salida válida no necesariamente es correcta.** Bottom statement: **Puede decidir qué evidencia revisar. No puede decidir que la evidencia obligatoria dejó de serlo.**
-Notes: LIVE: the judge runs on the Ask answer; read the verdict. Only an "aprobar" unlocks Act.
+Title: **Judge: agencia local, invariantes globales**. Two zones. Left "Invariantes (código)": ✓ denominador = respuestas válidas · ✓ n ≥ 5 por grupo o "muestra insuficiente" · ✓ sin identificadores · ✓ corte visible. Right "Juicio (modelo)": a typed verdict card `veredicto: pasa | revisar | rechazar` + `evidencia: […]`, with the line **Una salida válida no necesariamente es correcta.** Bottom statement: **Puede decidir qué evidencia revisar. No puede decidir que la evidencia obligatoria dejó de serlo.**
+Notes: LIVE: the judge runs on the Ask answer; read the verdict. Only a "pasa" unlocks Act.
 
 ### 10 · Act: la frontera (slide15.xml, dotted arrows): C · 9:20–11:35 (includes LIVE)
 Title: **Act: el modelo propone, la aplicación ejecuta**. Flow left to right: **Solicitud** (propuesta del modelo, Purple Moon) → **Validación** (identidad · permisos · objetivo válido) → **Aprobación humana** → **Ejecución** → **Recibo**. From Validación, a Valencia Orange branch down to **✕ rechazada · sin efecto**. Small line: **Que el modelo pida una acción no significa que ya ocurrió.**

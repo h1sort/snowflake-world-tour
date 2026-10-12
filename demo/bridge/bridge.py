@@ -590,7 +590,9 @@ def build(args: argparse.Namespace) -> tuple[Bridge, ErrorReporter, float]:
     salt = need("VOTER_SALT")
     site = need("H1SORT_SITE")
     sink = SnowflakeSink(
-        account=need("SNOWFLAKE_ACCOUNT"), user=need("SNOWFLAKE_USER"), pat=need("SNOWFLAKE_PAT"),
+        # The loader has its own PAT (role-restricted to SWT_LOADER); SNOWFLAKE_PAT is the agent's.
+        account=need("SNOWFLAKE_ACCOUNT"), user=need("SNOWFLAKE_USER"),
+        pat=os.environ.get("SNOWFLAKE_PAT_LOADER") or need("SNOWFLAKE_PAT"),
         role=os.environ.get("SNOWFLAKE_ROLE_LOADER", "SWT_LOADER"),
         warehouse=os.environ.get("SNOWFLAKE_WAREHOUSE", "SWT_WH"),
         pat_mode=os.environ.get("SNOWFLAKE_PAT_AUTH", "auto").strip().lower() or "auto")

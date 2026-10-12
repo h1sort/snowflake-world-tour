@@ -1,6 +1,6 @@
 # Status: Snowflake World Tour CDMX talk (Tue 13 Oct 2026, 11:00 CST, 15 min)
 
-_Last updated: Mon 12 Oct 2026, 12:10 ET. Read this first when resuming._
+_Last updated: Mon 12 Oct 2026, 12:25 ET. Read this first when resuming._
 
 ## Done
 - **Deck (PowerPoint, official SWT26 template):** 13 slides + Spanish speaker notes, reviewed by an independent agent, all fixes applied. Source: `deck/src/` (unpacked pptx). Build: `deck/tools/pack.sh [OUT_DIR]` (pack + validate + render). Spec: `deck/BRIEF.md`.
@@ -11,13 +11,15 @@ _Last updated: Mon 12 Oct 2026, 12:10 ET. Read this first when resuming._
 - **Bridge D1 → Snowflake** (`demo/bridge/bridge.py`): done, 16 offline tests pass, `--mock` / `--once` / `--counts`. Reads D1 through Carlos's existing `npx wrangler` login. Hashes browser ids with a salt before upload.
 
 ## In progress (agents were running at 12:10 ET)
-- **Snowflake objects** (`demo/snowflake/00_setup.sql` … `05_reset.sql`, README, rest_examples): files written, agent finishing README/verification.
-- **Ask/Judge/Act harness** (`demo/harness/stage.py` + tests): main file written, agent finishing tests/README.
-- If a session resumes and these agents are gone: check `git log`, run the tests (`uv run --with pytest ... pytest demo/`), read the READMEs; finish whatever is missing against `demo/CONTRACT.md`.
+- Nothing running. All three demo pieces are written and committed; none has run against real Snowflake or h1sort.com yet.
+- **Snowflake objects** (`demo/snowflake/00_setup.sql` … `05_reset.sql`, README, rest_examples.md): written from current docs, not executed. Unverified bits + plan B are in its README.
+- **Harness** (`demo/harness/stage.py`): 49 tests pass; mock flow verified (refusal prints "RECHAZADA · sin efecto", no network call).
+- **Bridge** (`demo/bridge/bridge.py`): 16 tests pass; uses `SNOWFLAKE_PAT_LOADER`.
+- Contract amendments (two PATs, numerator requires ROL, model claude-sonnet-5) are at the bottom of `demo/CONTRACT.md`.
 
 ## Carlos's to-dos (only he can do these)
 1. **Create the poll group** at h1sort.com/polls with the 3 questions EXACTLY as in `demo/CONTRACT.md` → send the group code.
-2. **Snowflake:** run `demo/snowflake/00_setup.sql` → `03_agent.sql` in a worksheet (ACCOUNTADMIN for 00); create a PAT; **check the network policy allows the venue IP** (top risk); run `04_checks.sql`.
+2. **Snowflake:** `SELECT CURRENT_REGION()`; run `demo/snowflake/00_setup.sql` → `03_agent.sql` (ACCOUNTADMIN for 00); create TWO PATs (agent + loader, see README); **check the network policy allows the venue IP** (top risk); run `04_checks.sql`.
 3. **Laptop:** `cp demo/.env.example demo/.env`, fill it; `npx wrangler login`; `uv run demo/bridge/bridge.py --mock`, then `--once` for real.
 4. **Decide:** does `h1sort.com/snowflake` (QR on last slide) serve the slides PDF from the start of the talk, or only after? Any push to h1sort-website deploys production immediately, so that PR waits for his go.
 5. **Decide:** Anatomy figure on slide 7, yes/no.

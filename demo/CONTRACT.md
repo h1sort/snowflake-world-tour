@@ -47,5 +47,12 @@ Question order inside a group = `polls.created_at ASC, polls.id ASC` → P1, P2,
 - Stage output style: like GBM `demo/agent.py`: colored stage labels `SOLICITUD › VALIDACIÓN › EJECUCIÓN › OBSERVACIÓN`, `RECHAZADA` in orange/red, large readable text, Spanish.
 - Every component has `--mock` (no network: canned fixtures in `demo/fixtures/`) used for rehearsal and as the last-resort fallback, and is clearly labeled `[MODO ENSAYO]` on screen when mocked.
 
+## Amendments (from the Snowflake build, 12 Oct; these win over the text above)
+- `con_permiso` also requires `ROL IS NOT NULL` (else the % can exceed 100). Harness recompute already uses `ROL IS NOT NULL AND PERMISO_PRODUCCION IS NOT NULL`.
+- Two PATs on service user `SWT_DEMO_USER`, one role each: `SNOWFLAKE_PAT` (SWT_AGENT_RO, harness) and `SNOWFLAKE_PAT_LOADER` (SWT_LOADER, bridge).
+- `SEM.RESPUESTAS` has a sixth column `ULTIMA_RESPUESTA_AT` (data cutoff). The view reads the most recently created group in RAW: run `05_reset.sql` after rehearsing with another group.
+- Extra role `SWT_OWNER` owns the objects. `SWT_LOADER` cannot create temp tables: MERGE uses `USING (SELECT … FROM VALUES …)` (bridge already does).
+- Cortex model: `claude-sonnet-5` (GA), fallback `claude-sonnet-4-5`; Claude runs via cross-region inference; check `CORTEX_ENABLED_CROSS_REGION` and `SELECT CURRENT_REGION()`.
+
 ## Env vars (`demo/.env.example`)
 `GROUP_CODE`, `H1SORT_SITE` (path to the h1sort-website checkout), `VOTER_SALT`, `SNOWFLAKE_ACCOUNT`, `SNOWFLAKE_USER`, `SNOWFLAKE_PAT` (programmatic access token; key-pair optional), `SNOWFLAKE_ROLE_LOADER=SWT_LOADER`, `SNOWFLAKE_ROLE_AGENT=SWT_AGENT_RO`, `SNOWFLAKE_WAREHOUSE=SWT_WH`, `CORTEX_MODEL` (default a Claude model id), `POLLS_ADMIN_USERNAME`, `POLLS_ADMIN_PASSWORD`, `H1SORT_BASE=https://h1sort.com`.
