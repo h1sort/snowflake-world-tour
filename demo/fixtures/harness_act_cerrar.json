@@ -1,0 +1,56 @@
+{
+  "descripcion": "Ensayo del camino feliz de Act: propuesta válida, grupo abierto, recibo 200 con updated 3.",
+  "propuesta": {
+    "accion": "cerrar_encuesta",
+    "objetivo": "7F3A9C1E5B",
+    "motivo": "El orador pidió cerrar la encuesta y publicar los resultados."
+  },
+  "grupo_antes": {
+    "id": "7f3a9c1e-5b24-4d86-9a0e-c1d2e3f4a5b6",
+    "code": "7F3A9C1E5B",
+    "title": "Snowflake World Tour CDMX · Agentes en producción",
+    "polls": [
+      {
+        "question": "¿Cuál describe mejor tu rol?",
+        "status": "open",
+        "total": null
+      },
+      {
+        "question": "En los últimos 7 días, ¿usaste IA para trabajar con datos?",
+        "status": "open",
+        "total": null
+      },
+      {
+        "question": "¿Le darías a un agente permiso de actuar en producción?",
+        "status": "open",
+        "total": null
+      }
+    ]
+  },
+  "recibo": {
+    "http_status": 200,
+    "updated": 3
+  },
+  "grupo_despues": {
+    "id": "7f3a9c1e-5b24-4d86-9a0e-c1d2e3f4a5b6",
+    "code": "7F3A9C1E5B",
+    "title": "Snowflake World Tour CDMX · Agentes en producción",
+    "polls": [
+      {
+        "question": "¿Cuál describe mejor tu rol?",
+        "status": "closed",
+        "total": 73
+      },
+      {
+        "question": "En los últimos 7 días, ¿usaste IA para trabajar con datos?",
+        "status": "closed",
+        "total": 68
+      },
+      {
+        "question": "¿Le darías a un agente permiso de actuar en producción?",
+        "status": "closed",
+        "total": 66
+      }
+    ]
+  }
+}

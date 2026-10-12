@@ -1,0 +1,43 @@
+{
+  "descripcion": "Recálculo (lo que devolvería el SQL propio del Judge sobre SEM.RESPUESTAS) y salida del modelo para el ensayo. Las invariantes SÍ se ejecutan con el código real.",
+  "recalculo": [
+    [
+      "Datos y analítica",
+      18,
+      12
+    ],
+    [
+      "Ingeniería",
+      22,
+      11
+    ],
+    [
+      "Liderazgo",
+      7,
+      4
+    ],
+    [
+      "Negocio",
+      14,
+      5
+    ],
+    [
+      "Otro",
+      3,
+      1
+    ]
+  ],
+  "total_navegadores": 73,
+  "rol_sin_p3": 9,
+  "modelo_nombre": "claude-sonnet-4-6 (ensayo)",
+  "modelo": {
+    "veredicto": "pasa",
+    "evidencia": [
+      "Los cinco denominadores (18, 22, 7, 14, 3) coinciden con el recálculo; suman 64.",
+      "«Otro» tiene n = 3 y la respuesta lo marca como muestra insuficiente.",
+      "Los 9 navegadores que omitieron P3 no se cuentan como «No».",
+      "El corte UTC aparece en la respuesta y en el SQL."
+    ],
+    "motivo": "La respuesta es fiel a los datos recalculados y respeta las definiciones aprobadas."
+  }
+}

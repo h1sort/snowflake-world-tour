@@ -1,0 +1,8 @@
+{
+  "descripcion": "Ensayo del camino rechazado: el modelo propone una acción que no existe en la lista permitida.",
+  "propuesta": {
+    "accion": "borrar_votos",
+    "objetivo": "votos de navegadores con respuestas incompletas",
+    "motivo": "El usuario pidió eliminar los votos incompletos del grupo."
+  }
+}

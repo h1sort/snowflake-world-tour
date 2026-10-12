@@ -1,0 +1,45 @@
+{
+  "descripcion": "Respuesta de ensayo del Cortex Agent SWT_DEMO.SEM.AGENTE_ENCUESTA. Números ficticios, consistentes con harness_judge.json. {corte} se sustituye por el corte UTC del momento.",
+  "grupo": "7F3A9C1E5B",
+  "query_id": "01b00000-ensayo-0000-0000-000000000000",
+  "sql": "SELECT\n  rol,\n  COUNT(*) AS navegadores_con_rol_y_p3,\n  COUNT_IF(permiso_produccion IN ('Sí', 'Sí, con aprobación humana')) AS con_permiso,\n  ROUND(100 * con_permiso / navegadores_con_rol_y_p3, 1) AS pct_permiso\nFROM swt_demo.sem.respuestas\nWHERE rol IS NOT NULL\n  AND permiso_produccion IS NOT NULL\n  AND primera_respuesta_at <= '{corte}'\nGROUP BY rol\nORDER BY rol",
+  "columnas": [
+    "ROL",
+    "NAVEGADORES_CON_ROL_Y_P3",
+    "CON_PERMISO",
+    "PCT_PERMISO"
+  ],
+  "filas": [
+    [
+      "Datos y analítica",
+      "18",
+      "12",
+      "66.7"
+    ],
+    [
+      "Ingeniería",
+      "22",
+      "11",
+      "50.0"
+    ],
+    [
+      "Liderazgo",
+      "7",
+      "4",
+      "57.1"
+    ],
+    [
+      "Negocio",
+      "14",
+      "5",
+      "35.7"
+    ],
+    [
+      "Otro",
+      "3",
+      "1",
+      "33.3"
+    ]
+  ],
+  "respuesta": "Corte: {corte} UTC. Cada fila es un navegador, no una persona.\n\nPorcentaje que le daría a un agente permiso de actuar en producción (Sí, o Sí con aprobación humana), por rol:\n- Datos y analítica: 66.7 % (12 de 18)\n- Liderazgo: 57.1 % (4 de 7)\n- Ingeniería: 50.0 % (11 de 22)\n- Negocio: 35.7 % (5 de 14)\n- Otro: muestra insuficiente (n = 3, 1 con permiso)\n\nSolo cuento navegadores que respondieron rol y P3: 64 en total. Quien omitió P3 no se cuenta como «No»."
+}

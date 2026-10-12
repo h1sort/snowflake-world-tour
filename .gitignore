@@ -231,3 +231,5 @@ demo/harness/.last_*.json
 demo/harness/stage.log
 demo/receipts.jsonl
 .pytest_cache/
+demo/harness/__pycache__/
+__pycache__/
