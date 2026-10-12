@@ -30,6 +30,7 @@ export function makeParts(k, P) {
       className: o.cls,
     });
   const byDepth = (list) => [...list].sort((a, b) => k.depthOf([a[0], a[1], 0], P) - k.depthOf([b[0], b[1], 0], P));
+  const halo = (pl, z, h) => `<path class="iso-halo" d="${k.haloOf(pl, z, h, P)}" style="filter:blur(5px)"/>`;
   const rect = (pts) => k.pathOf(pts.map(at), true);
   const faceY = (y, x0, x1, z0, z1) => rect([[x0, y, z0], [x1, y, z0], [x1, y, z1], [x0, y, z1]]);
   const faceX = (x, y0, y1, z0, z1) => rect([[x, y0, z0], [x, y1, z0], [x, y1, z1], [x, y0, z1]]);
@@ -43,25 +44,51 @@ export function makeParts(k, P) {
   const topRing = (cx, cy, r, z, steps = 24) => k.ring(cx, cy, r, z, P, steps);
 
   // ───────────────────────── base, rails, feet, ruler ─────────────────────────
+  // a polygon with rounded corners (radius per vertex), as a ring of points
+  function roundPoly(pts, radii, steps = 6) {
+    const out = [];
+    pts.forEach((v, i) => {
+      const p = pts[(i + pts.length - 1) % pts.length], n = pts[(i + 1) % pts.length], r = radii[i];
+      const a = [p[0] - v[0], p[1] - v[1]], b = [n[0] - v[0], n[1] - v[1]];
+      const la = Math.hypot(...a), lb = Math.hypot(...b);
+      a[0] /= la; a[1] /= la; b[0] /= lb; b[1] /= lb;
+      const c = [v[0] + (a[0] + b[0]) * r, v[1] + (a[1] + b[1]) * r];
+      const t0 = Math.atan2(v[1] + a[1] * r - c[1], v[0] + a[0] * r - c[0]);
+      const t1 = Math.atan2(v[1] + b[1] * r - c[1], v[0] + b[0] * r - c[0]);
+      let d = t1 - t0;
+      while (d > Math.PI) d -= 2 * Math.PI;
+      while (d < -Math.PI) d += 2 * Math.PI;
+      for (let s = 0; s <= steps; s++) out.push([c[0] + r * Math.cos(t0 + (d * s) / steps), c[1] + r * Math.sin(t0 + (d * s) / steps)]);
+    });
+    return out;
+  }
+  const BX0 = PLATE.x, BX1 = PLATE.x + PLATE.w, BY0 = PLATE.y, BY1 = PLATE.y + PLATE.d;
+  const benchRing = (inset = 0) =>
+    roundPoly(
+      [[BX1 - inset, BY0 + inset], [BX1 - inset, BY1 - inset], [LOBE_X + inset, BY1 - inset], [LOBE_X + inset, FRONT - inset], [BX0 + inset, FRONT - inset], [BX0 + inset, BY0 + inset]],
+      [Math.max(1, 10 - inset), Math.max(1, 10 - inset), Math.max(1, 10 - inset), 4, Math.max(1, 10 - inset), Math.max(1, 10 - inset)],
+    );
   function base() {
-    const out = [`<path class="iso-halo" d="${k.haloOf(PLATE, -PLATE_H - FOOT_H, PLATE_H, P)}"/>`];
+    const ring0 = benchRing(0);
+    const out = [`<path class="iso-halo" d="${k.extrude(ring0, -PLATE_H - FOOT_H, PLATE_H, P, { convex: false }).fill}"/>`];
     const feet = [];
-    for (const x of [PLATE.x + 26, PLATE.x + PLATE.w / 2, PLATE.x + PLATE.w - 26]) for (const y of [-78, 68]) feet.push([x, y]);
+    for (const x of [PLATE.x + 26, PLATE.x + PLATE.w / 2, PLATE.x + PLATE.w - 26]) for (const y of [-78, x > LOBE_X ? 68 : FRONT - 18]) feet.push([x, y]);
     for (const [x, y] of byDepth(feet)) {
       out.push(cyl(x, y, 7, -PLATE_H - FOOT_H, 1.6, { tone: "lo", steps: 24 }));
       out.push(cyl(x, y, 5.4, -PLATE_H - FOOT_H + 1.6, FOOT_H - 1.6, { tone: "mid", steps: 22 }));
     }
-    out.push(S(k.slabOf(PLATE, -PLATE_H, PLATE_H, P, 8, 1.6), { tone: "mid", inner: L(k.sideSeam(PLATE, -PLATE_H / 2, P, 8), { tone: "faint" }) }));
-    out.push(L(k.planOutline(k.insetPlan(PLATE, 5), 0, P), { tone: "faint" }));
-    const screws = k.corners(PLATE, 10);
+    counter.solids++;
+    out.push(k.solidSvg(k.extrude(ring0, -PLATE_H, PLATE_H, P, { convex: false, bevel: 1.6 }), { tone: "mid", className: "bench", inner: L(k.ringSeam(ring0, -PLATE_H / 2, P), { tone: "faint" }) }));
+    out.push(L(k.onTop(benchRing(5), 0, P, true), { tone: "faint" }));
+    const screws = [[BX1 - 10, BY0 + 10], [BX1 - 10, BY1 - 10], [LOBE_X + 10, BY1 - 10], [BX0 + 10, FRONT - 10], [BX0 + 10, BY0 + 10]];
     out.push(L(screws.map(([x, y]) => k.ring(x, y, 2.2, 0, P, 14)).join(""), { tone: "lo" }));
     out.push(dots3(screws.map(([x, y]) => [x, y, 0]), { size: 0.5 }));
     // slots in the bench's front and end faces (closed outlines)
-    const fy = PLATE.y + PLATE.d, ex = PLATE.x + PLATE.w;
-    for (const x of [PLATE.x + 60, PLATE.x + 90, PLATE.x + PLATE.w - 120, PLATE.x + PLATE.w - 90]) out.push(L(faceY(fy, x - 10, x + 10, -9, -5), { tone: "faint" }));
-    out.push(L(faceX(ex, PLATE.y + 40, PLATE.y + 60, -9, -5), { tone: "faint" }), L(faceX(ex, PLATE.y + 130, PLATE.y + 150, -9, -5), { tone: "faint" }));
+    for (const x of [PLATE.x + 60, PLATE.x + 90, -10, 20]) out.push(L(faceY(FRONT, x - 10, x + 10, -9, -5), { tone: "faint" }));
+    for (const x of [S3 + 10, S3 + 70]) out.push(L(faceY(BY1, x - 10, x + 10, -9, -5), { tone: "faint" }));
+    out.push(L(faceX(BX1, BY0 + 40, BY0 + 60, -9, -5), { tone: "faint" }), L(faceX(BX1, BY0 + 130, BY0 + 150, -9, -5), { tone: "faint" }));
     // front ruler strip with ticks, rooted on its back edge
-    const strip = { x: PLATE.x + 20, y: 78, w: 340, d: 7, r: 1 };
+    const strip = { x: PLATE.x + 24, y: FRONT - 16, w: 300, d: 7, r: 1 };
     out.push(S(k.slabOf(strip, 0, 0.6, P, 3), { tone: "lo", crease: "none" }));
     const ticks = k.topTicks(strip.x + 4, strip.x + strip.w - 4, 5, 5, strip.y + 0.8, 0.6, [2, 3.6], P);
     out.push(L(ticks.minor, { tone: "lo" }), L(ticks.major, { tone: "mid" }));
@@ -99,6 +126,7 @@ export function makeParts(k, P) {
   function feeder() {
     const out = [];
     const x0 = HOME - 36, x1 = HOME + 8;
+    out.push(halo(plan(x0, -88, x1, -50, 2), 0, 10));
     out.push(slab(x0, -88, x1, -50, 0, 16, { tone: "mid", r: 2, steps: 4, bevel: 0.8, inner: L(k.sideSeam(plan(x0, -88, x1, -50, 2), 9, P, 4), { tone: "faint" }) }));
     out.push(L(k.planOutline(plan(x0 + 3, -85, x1 - 3, -53, 1.4), 16, P, 4), { tone: "faint" }));
     // a stack of request tickets standing in the feeder, front edges showing
@@ -118,6 +146,7 @@ export function makeParts(k, P) {
   function cabinet() {
     const out = [];
     const body = plan(CAB.x, CAB.y, CAB.x + CAB.w, CAB.y + CAB.d, 2);
+    out.push(halo(plan(CAB.x - 2, CAB.y - 2, CAB.x + CAB.w + 2, CAB.y + CAB.d + 2, 2.5), 0, 14));
     out.push(slab(CAB.x - 2, CAB.y - 2, CAB.x + CAB.w + 2, CAB.y + CAB.d + 2, 0, 3, { tone: "lo", r: 2.5, steps: 4, bevel: 0.6 }));
     out.push(S(k.slabOf(body, 3, CAB.h - 3, P, 4, 0.8), { tone: "mid", inner: L(k.sideSeam(body, 3 + (CAB.h - 3) / 2, P, 4), { tone: "faint" }) }));
     out.push(L(k.planOutline(k.insetPlan(body, 3), CAB.h, P, 4), { tone: "faint" }));
@@ -203,6 +232,7 @@ export function makeParts(k, P) {
     const out = [];
     const c = GAUGE_COL;
     const body = plan(c.x, c.y, c.x + c.w, c.y + c.d, 2);
+    out.push(halo(body, 0, 12));
     out.push(S(k.slabOf(body, 0, c.h, P, 4, 0.8), { tone: "mid", inner: L(k.sideSeam(body, 8, P, 4), { tone: "faint" }) }));
     const fy = c.y + c.d;
     out.push(L(faceY(fy, c.x + 6, c.x + c.w - 6, 14, c.h - 8), { tone: "faint" }));
@@ -287,6 +317,7 @@ export function makeParts(k, P) {
     const out = [];
     const c = PCOL;
     const body = plan(c.x, c.y, c.x + c.w, c.y + c.d, 2);
+    out.push(halo(body, 0, 12));
     out.push(S(k.slabOf(body, 0, c.h, P, 4, 0.8), { tone: "mid", inner: L(k.sideSeam(body, 8, P, 4), { tone: "faint" }) }));
     const fy = c.y + c.d;
     out.push(L(faceY(fy, c.x + 6, c.x + c.w - 6, 5, 14), { tone: "faint" }));
@@ -312,31 +343,43 @@ export function makeParts(k, P) {
     return out.join("");
   }
   const keyPlace = (i) => KEYS[i];
+  const hexRing = (x, y, r) => Array.from({ length: 6 }, (_, n) => [x + r * Math.cos((n * Math.PI) / 3 + Math.PI / 6), y + r * Math.sin((n * Math.PI) / 3 + Math.PI / 6)]);
+  const KEY_BODY = [3.2, 4.2];
   function keyBase(i) {
+    // two different keys: the application's is a round switch with a blade, the human one a hex-bezel barrel with a thumb lever
     const { x, y } = keyPlace(i);
+    const zp = PCOL.h;
     const out = [];
-    out.push(cyl(x, y, 8, PCOL.h, 2, { tone: "lo", steps: 28, bevel: 0.3 }));
-    // detents at 0 and 90 degrees
+    out.push(slab(x - 11, y - 11, x + 11, y + 11, zp, 3, { tone: "lo", r: 2.4, steps: 3, bevel: 0.4 }));
+    if (i === 0) out.push(cyl(x, y, 8.4, zp + 3, 2, { tone: "mid", steps: 28, bevel: 0.3 }));
+    else out.push(S(k.extrude(hexRing(x, y, 9.6), zp + 3, 2.4, P, { bevel: 0.3 }), { tone: "mid" }));
+    const top = zp + (i === 0 ? 5 : 5.4);
     const t = [];
-    for (const a of [0, 90]) {
+    for (const a of [-30, 60]) {
       const rad = (a * Math.PI) / 180;
-      t.push(k.lineOnTop([x + Math.cos(rad) * 6.6, y + Math.sin(rad) * 6.6], [x + Math.cos(rad) * 8, y + Math.sin(rad) * 8], PCOL.h + 2, P));
+      t.push(k.lineOnTop([x + Math.cos(rad) * 6.6, y + Math.sin(rad) * 6.6], [x + Math.cos(rad) * 8.2, y + Math.sin(rad) * 8.2], top, P));
     }
     out.push(L(t.join(""), { tone: "mid" }));
-    out.push(cyl(x, y, i === 1 ? 5.6 : 4.4, PCOL.h + 2, 3.2, { tone: "mid", steps: 22, bevel: 0.3 }));
+    out.push(cyl(x, y, i === 1 ? 5.8 : 4.4, top, KEY_BODY[i], { tone: i === 1 ? "hi" : "mid", steps: 24, bevel: 0.3 }));
+    if (i === 1) out.push(L(k.knurl(x, y, 5.8, top, top + KEY_BODY[1], 22, P, 0.3), { tone: "lo" }));
+    out.push(dots3([[x - 8, y + 8.5, zp + 3], [x + 8, y + 8.5, zp + 3]], { size: 0.42 }));
     return out.join("");
   }
   function keyBow(i, a) {
-    // a: 0..1, the key turns a quarter
     const { x, y } = keyPlace(i);
     const ang = (-30 + 90 * a) * (Math.PI / 180);
-    const len = i === 1 ? 7.6 : 6.4;
-    const wid = i === 1 ? 2.0 : 1.5;
-    const ring = [[-len, -wid], [len, -wid], [len, wid], [-len, wid]].map(([u, v]) => [x + u * Math.cos(ang) - v * Math.sin(ang), y + u * Math.sin(ang) + v * Math.cos(ang)]);
-    const z = PCOL.h + 5.2;
-    const out = [S(k.extrude(ring, z, 2.4, P, { bevel: 0.3 }), { tone: "hi" })];
+    const len = i === 1 ? 10 : 7;
+    const wid = i === 1 ? 2.2 : 1.5;
     const c = Math.cos(ang), s = Math.sin(ang);
-    out.push(L(k.lineOnTop([x - c * (len - 1.2), y - s * (len - 1.2)], [x + c * (len - 1.2), y + s * (len - 1.2)], z + 2.4, P), { tone: "lo" }));
+    const rot = (u, v) => [x + u * c - v * s, y + u * s + v * c];
+    const z = PCOL.h + (i === 0 ? 5 : 5.4) + KEY_BODY[i] + 0.2;
+    const ring = [[-len, -wid], [len, -wid], [len, wid], [-len, wid]].map(([u, v]) => rot(u, v));
+    const out = [S(k.extrude(ring, z, 2.4, P, { bevel: 0.3 }), { tone: "hi" })];
+    out.push(L(k.lineOnTop([x - c * (len - 0.3), y - s * (len - 0.3)], [x + c * (len - 0.3), y + s * (len - 0.3)], z + 2.4, P), { tone: "lo" }));
+    if (i === 1) {
+      const [ex, ey] = rot(len, 0);
+      out.push(cyl(ex, ey, 3.2, z, 3.4, { tone: "hi", steps: 16, bevel: 0.3 }));
+    }
     out.push(dots3([[x, y, z + 2.4]], { size: 0.6, tone: "hi" }));
     return out.join("");
   }
@@ -514,8 +557,8 @@ export function makeParts(k, P) {
     const pts = (...list) => list.map(at);
     const gx = S2 + 12, bx = BOX.x + 4;
     const permit = pts([gx, GAUGE_COL.y + GAUGE_COL.d, 10], [gx, -46, 1.2], [bx, -46, 1.2], [bx, -40, 1.2], [bx, -43, 26]);
-    const keyA = pts([KEYS[0].x, -63, PCOL.h + 0.6], [KEYS[0].x, -50, PCOL.h], [KEYS[0].x, -50, 36], [BOX.x + 10, -43, 26]);
-    const keyB = pts([KEYS[1].x, -63, PCOL.h + 0.6], [KEYS[1].x, -50, PCOL.h], [KEYS[1].x, -50, 36], [BOX.x + 30, -43, 26]);
+    const keyA = pts([KEYS[0].x, KEYS[0].y + 11, PCOL.h + 3], [KEYS[0].x, -50, PCOL.h], [KEYS[0].x, -50, 36], [BOX.x + 10, -43, 26]);
+    const keyB = pts([KEYS[1].x, KEYS[1].y + 11, PCOL.h + 3], [KEYS[1].x, -50, PCOL.h], [KEYS[1].x, -50, 36], [BOX.x + 30, -43, 26]);
     const w = (name, list) => `<g data-part="${name}">${k.wireSvg(list[0], list[list.length - 1], { via: list.slice(1, -1), tone: "lo", size: 1.1 })}</g>`;
     return w("wirePermit", permit) + w("wireA", keyA) + w("wireB", keyB);
   }

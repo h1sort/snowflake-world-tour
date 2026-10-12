@@ -2,7 +2,7 @@
 // World: x along the rail, y toward the viewer, z up. Units are about 1 px.
 export const W = 900;
 export const H = 380;
-export const AZ = 66;
+export const AZ = 71;
 export const EL = 36;
 
 export const PLATE = { x: -316, y: -100, w: 576, d: 190, r: 10 };
@@ -49,13 +49,16 @@ export const PARM = { x: S3 - 6, w: 40, y0: -96, y1: 14, z0: 46, z1: 56 };
 export const RAM = { x: S3 + STAMP_AT[0], y: STAMP_AT[1], r: 7.4, dieH: 4, rest: 24, down: 9.6, rodR: 2.4 };
 export const HOUSE = { r: 9, z0: 56, z1: 65 };
 export const KEYS = [
-  { x: S3 - 20, y: -72, name: "aplicación" },
-  { x: S3 + 40, y: -72, name: "humana" },
+  { x: S3 - 18, y: -62, name: "aplicación" },
+  { x: S3 + 42, y: -62, name: "humana" },
 ];
 export const BOX = { x: S3 - 6, w: 36, y0: -50, y1: -43, z0: 16, z1: 30 };
 export const SHUTTER = { x: S3 - 4, w: 32, z: 18.6, h: 3, y0: -12, d: 18, travel: 22 };
 export const PADDLE = { x: S3 - 24, w: 48, z: 8.4, h: 7.6, d: 4, y0: -28 };
 export const PUSH = 60; // the gate's stroke: its front face goes from -24 to 36
+// The bench is an L: a strip under the rail and stations, with a lobe in front of the press for the reject bin.
+export const FRONT = 40; // front edge of the strip
+export const LOBE_X = S3 - 56; // the lobe runs from here to the bench's right end
 export const BIN = { x: S3 - 37, y: 28, w: 74, d: 54, wall: 3 };
 export const TRAY = { x: S3 + 54, y: -92, w: 70, d: 32, z: 14, h: 2.6 };
 export const SLIP = { w: 24, d: 20, z: TRAY.z + TRAY.h, h: 0.9, y: -76, start: TRAY.x - 24, stroke: 30 };

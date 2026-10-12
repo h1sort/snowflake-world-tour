@@ -20,7 +20,8 @@ const strip = (file) => readFileSync(join(HERE, file), "utf8").replace(/^export 
 
 // ── camera ───────────────────────────────────────────────────────────────
 const corners = [
-  ...kit.boxCorners(PLATE, -PLATE_H - FOOT_H, 0),
+  ...kit.boxCorners({ x: PLATE.x, y: PLATE.y, w: PLATE.w, d: FRONT - PLATE.y }, -PLATE_H - FOOT_H, 0),
+  ...kit.boxCorners({ x: LOBE_X, y: PLATE.y, w: PLATE.x + PLATE.w - LOBE_X, d: PLATE.d }, -PLATE_H - FOOT_H, 0),
   [S2, HOLE_Y, 80],
   [S2 - 30, -96, 66],
   [ARM1.x, -96, 60],
@@ -28,11 +29,11 @@ const corners = [
   [HOME - 36, -88, 20],
   [PARM.x, -96, 58],
   [RAM.x, RAM.y, 84],
-  [KEYS[1].x + 8, 84, 4],
+  [KEYS[1].x + 12, 84, 4],
   [HOME - 36, 0, 2],
   [TRAY.x + TRAY.w, -92, 20],
 ];
-const P = kit.fitProjection(corners, W, H, { pad: 14, azimuth: AZ, elevation: EL });
+const P = kit.fitProjection(corners, W, H, { pad: 22, azimuth: AZ, elevation: EL });
 const parts = makeParts(kit, P);
 const { S, L, at } = parts;
 
@@ -124,17 +125,26 @@ const EXTRA_CSS = `
 .iso[data-theme="dark"]{--anatomy-lit:#29B5E8}
 .iso[data-theme]{--anatomy-lit:#29B5E8;--anatomy-red:#FF9F36}
 .iso .ticket.rej .iso-edge,.iso .rej-liner>.iso-edge,.iso .rej-wall>.iso-edge{stroke:var(--rej)}
-.iso .ticket.rej .iso-fill,.iso .ticket.rej .iso-top,.iso .ticket.rej .iso-shade{fill:color-mix(in srgb,var(--rej) 24%,var(--anatomy-paper))}
-.iso .rej-liner>.iso-top,.iso .rej-liner>.iso-fill{fill:color-mix(in srgb,var(--rej) 16%,var(--anatomy-paper))}
-.iso .rej-wall>.iso-fill{fill:color-mix(in srgb,var(--rej) 10%,var(--anatomy-paper))}
-.iso .rej-wall>.iso-top{fill:color-mix(in srgb,var(--rej) 16%,var(--anatomy-top))}
+.iso .ticket.rej .iso-fill,.iso .ticket.rej .iso-top,.iso .ticket.rej .iso-shade{fill:color-mix(in srgb,var(--rej) 36%,var(--anatomy-paper))}
+.iso .rej-liner>.iso-top,.iso .rej-liner>.iso-fill{fill:color-mix(in srgb,var(--rej) 30%,var(--anatomy-paper))}
+.iso .rej-wall>.iso-fill{fill:color-mix(in srgb,var(--rej) 18%,var(--anatomy-shade-3))}
+.iso .rej-wall>.iso-top{fill:color-mix(in srgb,var(--rej) 26%,var(--anatomy-top))}
 .iso .iso-line.rej-line{stroke:var(--rej)}
 .iso .iso-line[data-tone="hi"].ink{stroke:var(--anatomy-hi)}
-.iso .ticket .iso-fill,.iso .ticket .iso-top{fill:color-mix(in srgb,var(--lit-blue) 9%,#fff)}
-.iso .ticket .iso-shade{fill:color-mix(in srgb,var(--lit-blue) 16%,var(--anatomy-shade-3))}
+.iso .ticket .iso-fill,.iso .ticket .iso-top{fill:color-mix(in srgb,var(--lit-blue) 24%,#fff)}
+.iso .ticket .iso-shade{fill:color-mix(in srgb,var(--lit-blue) 42%,var(--anatomy-shade-3))}
+.iso .ticket:not(.rej) .iso-edge{stroke:color-mix(in srgb,var(--lit-blue) 70%,#000)}
 .iso .ticket .iso-edge{stroke-width:1}
-.iso[data-theme="light"]{--anatomy-weight:.7px}
-body.bare.iso[data-theme="light"]{--anatomy-weight:.85px;--anatomy-mid:#5e5e64;--anatomy-lo:#9c9ca2;--anatomy-faint:#c6c6ca;--anatomy-shade-0:#cfcfcb;--anatomy-shade-1:#dbdbd7;--anatomy-shade-2:#e7e7e3;--anatomy-shade-3:#f1f1ee;--anatomy-halo-opacity:.42}
+.iso[data-theme="light"]{--anatomy-weight:.9px;--anatomy-shade-0:#8d8d88;--anatomy-shade-1:#a4a49f;--anatomy-shade-2:#bbbbb6;--anatomy-shade-3:#d1d1cc;--anatomy-hi:#0a0a0c;--anatomy-mid:#2d2d33;--anatomy-lo:#66666c;--anatomy-faint:#a0a0a6;--anatomy-halo-opacity:.45;--anatomy-lit-shade:#e6eef2}
+body.bare.iso[data-theme="light"]{--anatomy-weight:3px}
+body.bare .iso-line[data-dotted]{stroke-width:3px;stroke-dasharray:.01 11px}
+body.bare .iso-line[data-flow]{stroke-dasharray:8px 24px}
+body.bare .iso-line[data-dashed]{stroke-dasharray:12px 12px}
+body.bare .iso-halo{filter:blur(12px)!important}
+body.bare .iso .ticket .iso-edge{stroke-width:3px}
+body.bare [data-part="needle"]{stroke-width:3.2px!important}
+.iso[data-theme="light"] .bench>.iso-top,.iso[data-theme="light"] .bench>.iso-fill{fill:#c4c4bf}
+.iso[data-theme="light"] .bench>.iso-top{fill:#cfcfca}
 .iso-stage{outline:none;touch-action:pan-y;cursor:crosshair}
 .iso-stage:focus-visible{outline:1px solid var(--anatomy-muted);outline-offset:6px}
 .iso-wire[data-on] .iso-wire-end{stroke:var(--anatomy-hi)}
