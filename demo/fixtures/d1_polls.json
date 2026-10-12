@@ -1,0 +1,46 @@
+[
+  {
+    "results": [
+      {
+        "id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "group_id": "7f3a9c1e-5b24-4d86-9a0e-c1d2e3f4a5b6",
+        "code": "K7M2QX",
+        "question": "¿Cuál describe mejor tu rol?",
+        "status": "open",
+        "created_at": "2026-10-13 16:41:13",
+        "opened_at": "2026-10-13 17:00:37",
+        "closed_at": null
+      },
+      {
+        "id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "group_id": "7f3a9c1e-5b24-4d86-9a0e-c1d2e3f4a5b6",
+        "code": "P4TH9R",
+        "question": "En los últimos 7 días, ¿usaste IA para trabajar con datos?",
+        "status": "open",
+        "created_at": "2026-10-13 16:41:13",
+        "opened_at": "2026-10-13 17:00:37",
+        "closed_at": null
+      },
+      {
+        "id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "group_id": "7f3a9c1e-5b24-4d86-9a0e-c1d2e3f4a5b6",
+        "code": "W5N8ZB",
+        "question": "¿Le darías a un agente permiso de actuar en producción?",
+        "status": "open",
+        "created_at": "2026-10-13 16:41:14",
+        "opened_at": "2026-10-13 17:00:37",
+        "closed_at": null
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "duration": 0.31,
+      "changes": 0,
+      "rows_read": 3,
+      "rows_written": 0,
+      "size_after": 163840,
+      "changed_db": false
+    }
+  }
+]

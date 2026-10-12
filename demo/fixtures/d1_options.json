@@ -1,0 +1,76 @@
+[
+  {
+    "results": [
+      {
+        "id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "label": "Negocio",
+        "position": 0
+      },
+      {
+        "id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "label": "Ingeniería",
+        "position": 1
+      },
+      {
+        "id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "label": "Datos y analítica",
+        "position": 2
+      },
+      {
+        "id": "0132e034-3a08-5bff-b202-444a902f9d79",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "label": "Liderazgo",
+        "position": 3
+      },
+      {
+        "id": "a8d19190-7ab2-5e39-8d2e-6413292f435b",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "label": "Otro",
+        "position": 4
+      },
+      {
+        "id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "label": "Sí",
+        "position": 0
+      },
+      {
+        "id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "label": "No",
+        "position": 1
+      },
+      {
+        "id": "4beedce2-4ce4-5d20-a08c-bcdc173fd888",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "label": "Sí",
+        "position": 0
+      },
+      {
+        "id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "label": "Sí, con aprobación humana",
+        "position": 1
+      },
+      {
+        "id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "label": "No",
+        "position": 2
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "duration": 0.31,
+      "changes": 0,
+      "rows_read": 10,
+      "rows_written": 0,
+      "size_after": 163840,
+      "changed_db": false
+    }
+  }
+]

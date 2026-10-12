@@ -1,0 +1,22 @@
+[
+  {
+    "results": [
+      {
+        "id": "7f3a9c1e-5b24-4d86-9a0e-c1d2e3f4a5b6",
+        "code": "7F3A9C1E5B",
+        "title": "Snowflake World Tour CDMX · Agentes en producción",
+        "created_at": "2026-10-13 16:41:07"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "duration": 0.31,
+      "changes": 0,
+      "rows_read": 1,
+      "rows_written": 0,
+      "size_after": 163840,
+      "changed_db": false
+    }
+  }
+]

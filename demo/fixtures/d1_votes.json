@@ -1,0 +1,765 @@
+[
+  {
+    "results": [
+      {
+        "id": "8cac9c3e-4d4e-58cf-986b-56ce78239413",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "u26AVjFi221QozoVRFsKYm36yOc8pL995UbBTpyQGgA",
+        "created_at": "2026-10-13 17:01:18"
+      },
+      {
+        "id": "303904df-9e6e-5bca-9c46-34893f976572",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "voter_hash": "1ozv9BT1AtB4BgJ_LumTUfCXlItcn3FtGbdU5CAERIc",
+        "created_at": "2026-10-13 17:01:32"
+      },
+      {
+        "id": "564a0ab9-719a-5d2c-8aea-7c660f416a11",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "u26AVjFi221QozoVRFsKYm36yOc8pL995UbBTpyQGgA",
+        "created_at": "2026-10-13 17:01:33"
+      },
+      {
+        "id": "e25aa8f7-8f40-5dd6-a9b7-4461ab3f53ff",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "u26AVjFi221QozoVRFsKYm36yOc8pL995UbBTpyQGgA",
+        "created_at": "2026-10-13 17:01:41"
+      },
+      {
+        "id": "c3aae6d1-d337-5011-95ee-319b2c90affa",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "B7RQTxfVxL7mgpEFV6Hnw8XU64DHiCiFdCbb6Nt2Wbs",
+        "created_at": "2026-10-13 17:01:45"
+      },
+      {
+        "id": "45628c62-80e7-5980-8c5b-d35670fcba65",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "1ozv9BT1AtB4BgJ_LumTUfCXlItcn3FtGbdU5CAERIc",
+        "created_at": "2026-10-13 17:01:46"
+      },
+      {
+        "id": "e8a3a2b8-e175-5095-8df5-947b5af559a0",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "0132e034-3a08-5bff-b202-444a902f9d79",
+        "voter_hash": "dbP-XOtGI421IUwKLtlugv8cJdGgy-fDemJSBWTFhSk",
+        "created_at": "2026-10-13 17:01:47"
+      },
+      {
+        "id": "b6e130b2-21dc-55cf-a382-a4aa6c92bac7",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "B7RQTxfVxL7mgpEFV6Hnw8XU64DHiCiFdCbb6Nt2Wbs",
+        "created_at": "2026-10-13 17:01:49"
+      },
+      {
+        "id": "7653c14d-c023-5ad5-99a0-b663a4c2e4e2",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "4beedce2-4ce4-5d20-a08c-bcdc173fd888",
+        "voter_hash": "1ozv9BT1AtB4BgJ_LumTUfCXlItcn3FtGbdU5CAERIc",
+        "created_at": "2026-10-13 17:01:50"
+      },
+      {
+        "id": "5694f39c-472f-5671-b1ad-5f6e16df6166",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "B7RQTxfVxL7mgpEFV6Hnw8XU64DHiCiFdCbb6Nt2Wbs",
+        "created_at": "2026-10-13 17:01:59"
+      },
+      {
+        "id": "c1c35cd9-af42-55fa-9d66-f7f0120449d9",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "dbP-XOtGI421IUwKLtlugv8cJdGgy-fDemJSBWTFhSk",
+        "created_at": "2026-10-13 17:01:59"
+      },
+      {
+        "id": "34494303-4229-5fac-8912-bbcda1a893d2",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "2XBJKveuBc2vtnCAPzGj99hYYM-uxygKaD4CXt7PBks",
+        "created_at": "2026-10-13 17:02:01"
+      },
+      {
+        "id": "404112a3-048b-5eb2-8e30-2c48ed4d3d6c",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "bGEY-cxEzEYhqqshpUZi6rkTgATvhftSMTsvsNiAtjA",
+        "created_at": "2026-10-13 17:02:06"
+      },
+      {
+        "id": "d0201a47-3f05-5504-b7b0-68cd02de45e8",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "2XBJKveuBc2vtnCAPzGj99hYYM-uxygKaD4CXt7PBks",
+        "created_at": "2026-10-13 17:02:16"
+      },
+      {
+        "id": "943fced1-317f-58be-bcab-d69bf2e83ae4",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "bGEY-cxEzEYhqqshpUZi6rkTgATvhftSMTsvsNiAtjA",
+        "created_at": "2026-10-13 17:02:18"
+      },
+      {
+        "id": "60fcb2aa-7999-532b-8a63-542ada0cb7b6",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "2XBJKveuBc2vtnCAPzGj99hYYM-uxygKaD4CXt7PBks",
+        "created_at": "2026-10-13 17:02:27"
+      },
+      {
+        "id": "e10c1ad9-9786-5a55-9713-54dc7ba413ce",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "HreCuSt9wiyatvn-8iJopDDa-5GNZt8af9YTZcnVU_0",
+        "created_at": "2026-10-13 17:02:34"
+      },
+      {
+        "id": "396a1e23-18ca-54ff-b525-7d1280fc38fa",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "HreCuSt9wiyatvn-8iJopDDa-5GNZt8af9YTZcnVU_0",
+        "created_at": "2026-10-13 17:02:40"
+      },
+      {
+        "id": "ed16f834-8af9-5dfe-9b79-89c8b1e26caf",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "_YvFocXRgDkc_j98i7dWkYC9SvcaRzNAljjcLzDRWJY",
+        "created_at": "2026-10-13 17:02:43"
+      },
+      {
+        "id": "24af2517-0f07-554e-9d01-e95d800c7380",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "-Q0x-Dklc49l9943GXNlBsWPIqdc3P10jqSJ90oEgo8",
+        "created_at": "2026-10-13 17:02:44"
+      },
+      {
+        "id": "49d08252-fdcd-5b56-9e9f-655bea57ae30",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "-Q0x-Dklc49l9943GXNlBsWPIqdc3P10jqSJ90oEgo8",
+        "created_at": "2026-10-13 17:02:48"
+      },
+      {
+        "id": "1f07c930-3065-538e-829a-94be3b14b85a",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "Mm3CqYGQal-xCg6sICcgkxbW-apWjgYeeHAThg8Qeww",
+        "created_at": "2026-10-13 17:02:50"
+      },
+      {
+        "id": "e29e53e5-3c67-5706-9760-80eccf782f40",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "HreCuSt9wiyatvn-8iJopDDa-5GNZt8af9YTZcnVU_0",
+        "created_at": "2026-10-13 17:02:54"
+      },
+      {
+        "id": "4ca80dd4-f7dc-5112-90e3-c383cb9aca70",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "_YvFocXRgDkc_j98i7dWkYC9SvcaRzNAljjcLzDRWJY",
+        "created_at": "2026-10-13 17:02:55"
+      },
+      {
+        "id": "47c7f9dd-438e-5446-926a-1eaaf6656556",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "Mm3CqYGQal-xCg6sICcgkxbW-apWjgYeeHAThg8Qeww",
+        "created_at": "2026-10-13 17:02:59"
+      },
+      {
+        "id": "11fbab4b-20da-55c9-bf09-e3afa3e50e8e",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "Mm3CqYGQal-xCg6sICcgkxbW-apWjgYeeHAThg8Qeww",
+        "created_at": "2026-10-13 17:03:07"
+      },
+      {
+        "id": "f119715e-4139-5da9-8cb2-ffb3c136c624",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "a8d19190-7ab2-5e39-8d2e-6413292f435b",
+        "voter_hash": "rOn2ic58HIIoZl4h_RdCWhwnwUtNMmoh_QTJS43LoSE",
+        "created_at": "2026-10-13 17:03:08"
+      },
+      {
+        "id": "44a1b4d1-1fcd-5546-858a-4038460c848d",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "_YvFocXRgDkc_j98i7dWkYC9SvcaRzNAljjcLzDRWJY",
+        "created_at": "2026-10-13 17:03:10"
+      },
+      {
+        "id": "8ebb3bcb-9a38-569e-b096-c9213465c886",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "S06Mvi6XmQ4_fmMiCAlorlyLiUT1qOyuX6R1dLmMB60",
+        "created_at": "2026-10-13 17:03:16"
+      },
+      {
+        "id": "d25fb96d-b7ad-54d8-9dce-d2f2fc0ddf6d",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "rOn2ic58HIIoZl4h_RdCWhwnwUtNMmoh_QTJS43LoSE",
+        "created_at": "2026-10-13 17:03:22"
+      },
+      {
+        "id": "0fc78f35-1fb7-5d63-882a-c5e7072f3d62",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "S06Mvi6XmQ4_fmMiCAlorlyLiUT1qOyuX6R1dLmMB60",
+        "created_at": "2026-10-13 17:03:30"
+      },
+      {
+        "id": "8a86cf00-a0a1-53f2-b51b-4006eb6bdc96",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "rOn2ic58HIIoZl4h_RdCWhwnwUtNMmoh_QTJS43LoSE",
+        "created_at": "2026-10-13 17:03:36"
+      },
+      {
+        "id": "18874130-08b6-5108-b352-cce687c63697",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "a8d19190-7ab2-5e39-8d2e-6413292f435b",
+        "voter_hash": "6KzTlTs5vPmRByG0bbym8JnwduZ2ymOM6E12Ds9XI9A",
+        "created_at": "2026-10-13 17:03:39"
+      },
+      {
+        "id": "71d3a363-96dc-5fbc-93f9-4512d2c182c7",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "4beedce2-4ce4-5d20-a08c-bcdc173fd888",
+        "voter_hash": "S06Mvi6XmQ4_fmMiCAlorlyLiUT1qOyuX6R1dLmMB60",
+        "created_at": "2026-10-13 17:03:42"
+      },
+      {
+        "id": "36f229b5-7282-5efd-8172-1d51650df20b",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "6KzTlTs5vPmRByG0bbym8JnwduZ2ymOM6E12Ds9XI9A",
+        "created_at": "2026-10-13 17:03:46"
+      },
+      {
+        "id": "474ae88b-952e-5130-92aa-a3ac8d4ddc96",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "cAq_X6PlGSe-ADX3nyfd-ExmQybNsJuouu9dDDrgTIQ",
+        "created_at": "2026-10-13 17:03:47"
+      },
+      {
+        "id": "b98c896b-6bfa-54cc-aca5-5239f67f8c10",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "cAq_X6PlGSe-ADX3nyfd-ExmQybNsJuouu9dDDrgTIQ",
+        "created_at": "2026-10-13 17:03:51"
+      },
+      {
+        "id": "567e4371-c205-5fb8-835c-3650058ebade",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "cAq_X6PlGSe-ADX3nyfd-ExmQybNsJuouu9dDDrgTIQ",
+        "created_at": "2026-10-13 17:03:56"
+      },
+      {
+        "id": "2eec1c91-3f82-5903-aee3-9defa767acf7",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "voter_hash": "f8LS29hSLQo1B5bwTs8PxHqWIo-qpgDOPTByUAQkSCA",
+        "created_at": "2026-10-13 17:03:58"
+      },
+      {
+        "id": "459eb138-d792-54e9-9b15-950780a788c1",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "vPRRsRk2PjRbZjaPQj8Qm28C7ZK3TlBXks2ZGlKuC9k",
+        "created_at": "2026-10-13 17:03:59"
+      },
+      {
+        "id": "242db0c7-c7ee-5337-a8b3-2f170b2e909d",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "f8LS29hSLQo1B5bwTs8PxHqWIo-qpgDOPTByUAQkSCA",
+        "created_at": "2026-10-13 17:04:07"
+      },
+      {
+        "id": "ca11341b-edc6-576d-87e5-ac05f0c9fc8b",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "vPRRsRk2PjRbZjaPQj8Qm28C7ZK3TlBXks2ZGlKuC9k",
+        "created_at": "2026-10-13 17:04:12"
+      },
+      {
+        "id": "3e815471-8c74-5935-8742-f48601ec1407",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "f8LS29hSLQo1B5bwTs8PxHqWIo-qpgDOPTByUAQkSCA",
+        "created_at": "2026-10-13 17:04:17"
+      },
+      {
+        "id": "2062e092-2175-5fee-b0cf-28f33d4b8915",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "tXkuFAvTxlmPE2T9wNoVnu5sa9PEAs6fdpdu4HvCUq4",
+        "created_at": "2026-10-13 17:04:28"
+      },
+      {
+        "id": "eeb94424-616b-5c08-bff2-283becf66e75",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "EDxgBlo0uY-CZIEkX2r9wikFLgF6K_GbER4nHEevmZI",
+        "created_at": "2026-10-13 17:04:30"
+      },
+      {
+        "id": "1c671150-490f-518d-b5c7-c4061f221d49",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "tXkuFAvTxlmPE2T9wNoVnu5sa9PEAs6fdpdu4HvCUq4",
+        "created_at": "2026-10-13 17:04:35"
+      },
+      {
+        "id": "f0786f92-b773-567f-bff8-3cff0fb5e05e",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "4beedce2-4ce4-5d20-a08c-bcdc173fd888",
+        "voter_hash": "EDxgBlo0uY-CZIEkX2r9wikFLgF6K_GbER4nHEevmZI",
+        "created_at": "2026-10-13 17:04:42"
+      },
+      {
+        "id": "dac27039-456f-5209-a264-f8b07ce37514",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "4beedce2-4ce4-5d20-a08c-bcdc173fd888",
+        "voter_hash": "tXkuFAvTxlmPE2T9wNoVnu5sa9PEAs6fdpdu4HvCUq4",
+        "created_at": "2026-10-13 17:04:48"
+      },
+      {
+        "id": "2b653556-1e4a-5cc6-8fd2-bbd3b25be612",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "Jv6lE76w7vcczGc3N-Uv7uYHZ-14MKyoJowrlWDXAVg",
+        "created_at": "2026-10-13 17:04:53"
+      },
+      {
+        "id": "505ee979-a263-5ce5-909d-59c0a185729f",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "0132e034-3a08-5bff-b202-444a902f9d79",
+        "voter_hash": "oardtdvrZYItoJ_O9L6GZzIYPNkSHGGGbeS2OOI855g",
+        "created_at": "2026-10-13 17:04:54"
+      },
+      {
+        "id": "3b3887c4-73df-5d8d-bfc4-befea1006724",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "Jv6lE76w7vcczGc3N-Uv7uYHZ-14MKyoJowrlWDXAVg",
+        "created_at": "2026-10-13 17:05:04"
+      },
+      {
+        "id": "2079c86b-e16d-54d8-ada5-106ded4d80fc",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "oardtdvrZYItoJ_O9L6GZzIYPNkSHGGGbeS2OOI855g",
+        "created_at": "2026-10-13 17:05:06"
+      },
+      {
+        "id": "32860952-ae0f-59aa-8b96-65a3ec176d98",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "Ng3lWVDmtuAJCg7IwS9J7psdZ7Uby5626jjUuhk9Nhc",
+        "created_at": "2026-10-13 17:05:06"
+      },
+      {
+        "id": "50d9f1f1-cf98-5aab-9eb6-6d03c9936945",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "nCY4lmNeqUnbtEDodIr874TPEsi2I12dGl8JGrClG2o",
+        "created_at": "2026-10-13 17:05:06"
+      },
+      {
+        "id": "9b25c85b-32a8-5827-b2b2-c8e738e0818e",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "1gOXbjpNDsxJs_NVYXarzMvlmVfay5bibJaWDBv0yMs",
+        "created_at": "2026-10-13 17:05:09"
+      },
+      {
+        "id": "dfaa57d5-19f0-571f-9537-c98f86850b49",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "4beedce2-4ce4-5d20-a08c-bcdc173fd888",
+        "voter_hash": "Jv6lE76w7vcczGc3N-Uv7uYHZ-14MKyoJowrlWDXAVg",
+        "created_at": "2026-10-13 17:05:12"
+      },
+      {
+        "id": "4579a017-cbe1-5bf9-a161-5d940c2512e4",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "1gOXbjpNDsxJs_NVYXarzMvlmVfay5bibJaWDBv0yMs",
+        "created_at": "2026-10-13 17:05:14"
+      },
+      {
+        "id": "d8d91b1b-2e34-54b7-82e6-79594f5947f9",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "oardtdvrZYItoJ_O9L6GZzIYPNkSHGGGbeS2OOI855g",
+        "created_at": "2026-10-13 17:05:17"
+      },
+      {
+        "id": "af28ed09-24e0-5c73-b5af-bdca998b26f0",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "Ng3lWVDmtuAJCg7IwS9J7psdZ7Uby5626jjUuhk9Nhc",
+        "created_at": "2026-10-13 17:05:18"
+      },
+      {
+        "id": "0e7554be-66ae-57a3-bb89-d52ef8f73107",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "nCY4lmNeqUnbtEDodIr874TPEsi2I12dGl8JGrClG2o",
+        "created_at": "2026-10-13 17:05:20"
+      },
+      {
+        "id": "d6f719df-7d96-5fb4-a02f-886a01cfa8e5",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "1gOXbjpNDsxJs_NVYXarzMvlmVfay5bibJaWDBv0yMs",
+        "created_at": "2026-10-13 17:05:24"
+      },
+      {
+        "id": "a1765871-e6af-5cc2-9c33-54cb4dda1518",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "Ng3lWVDmtuAJCg7IwS9J7psdZ7Uby5626jjUuhk9Nhc",
+        "created_at": "2026-10-13 17:05:26"
+      },
+      {
+        "id": "3e797926-f76d-5a5b-a31e-1befce38c974",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "nCY4lmNeqUnbtEDodIr874TPEsi2I12dGl8JGrClG2o",
+        "created_at": "2026-10-13 17:05:32"
+      },
+      {
+        "id": "2c4160c1-191e-558c-aaa8-f209352d9869",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "voter_hash": "x2XVZbOH43OBKjqocUbQf7Jjg2tvRHVtOdvBGHZlD2A",
+        "created_at": "2026-10-13 17:05:43"
+      },
+      {
+        "id": "a4a495a7-d153-54ae-8763-a8c759a7c663",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "voter_hash": "QLA-1R7GE8eoOgCW0O9YM5IjntUln9bOX0fOzGA15-I",
+        "created_at": "2026-10-13 17:05:45"
+      },
+      {
+        "id": "4b3cde7e-7e9e-58fc-91c1-a8c3f9a236b4",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "voter_hash": "7zrskVkTBUQFsf70tgaaeSBNt4bD1SnCY_zH09cFyXU",
+        "created_at": "2026-10-13 17:05:46"
+      },
+      {
+        "id": "6b79182b-8626-58d5-98a6-77238945d0f5",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "p2w7MtS1-qNlHgdp9i0Q3XtMSNcLAm53zq-Sm8dJKeo",
+        "created_at": "2026-10-13 17:05:48"
+      },
+      {
+        "id": "61ccdd5c-24e2-5b14-a0fd-ccd52c49e6f7",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "QLA-1R7GE8eoOgCW0O9YM5IjntUln9bOX0fOzGA15-I",
+        "created_at": "2026-10-13 17:05:50"
+      },
+      {
+        "id": "63275b3a-b12d-5b77-886a-8a2bd9997d86",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "x2XVZbOH43OBKjqocUbQf7Jjg2tvRHVtOdvBGHZlD2A",
+        "created_at": "2026-10-13 17:05:52"
+      },
+      {
+        "id": "9b1a9315-969c-5f93-9d16-5b30cea17d0c",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "p2w7MtS1-qNlHgdp9i0Q3XtMSNcLAm53zq-Sm8dJKeo",
+        "created_at": "2026-10-13 17:05:54"
+      },
+      {
+        "id": "d7660037-9dce-5d6e-a985-7936f83d158e",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "7zrskVkTBUQFsf70tgaaeSBNt4bD1SnCY_zH09cFyXU",
+        "created_at": "2026-10-13 17:05:57"
+      },
+      {
+        "id": "86bff906-f6ee-589e-8c78-2bfefdc7b6b8",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "x2XVZbOH43OBKjqocUbQf7Jjg2tvRHVtOdvBGHZlD2A",
+        "created_at": "2026-10-13 17:05:59"
+      },
+      {
+        "id": "3281a762-e7a1-5649-8587-b4a0c169bab5",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "p2w7MtS1-qNlHgdp9i0Q3XtMSNcLAm53zq-Sm8dJKeo",
+        "created_at": "2026-10-13 17:06:04"
+      },
+      {
+        "id": "c27e642d-bccb-5785-bd04-4187cbc98540",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "LBZxSsBHAY0vi4trccFOIAniO2COusQFOVD9_5gEpnI",
+        "created_at": "2026-10-13 17:06:08"
+      },
+      {
+        "id": "d8c7f8ad-b33c-544d-84ce-ef77a40d6e3d",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "LBZxSsBHAY0vi4trccFOIAniO2COusQFOVD9_5gEpnI",
+        "created_at": "2026-10-13 17:06:19"
+      },
+      {
+        "id": "a8b72a33-8fd6-50db-90eb-cb42774c0043",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "LBZxSsBHAY0vi4trccFOIAniO2COusQFOVD9_5gEpnI",
+        "created_at": "2026-10-13 17:06:26"
+      },
+      {
+        "id": "14ebd71e-150b-5e88-aa95-7ebcd402bb01",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "825583fa-5a13-5d1a-b55a-a9c2e7d8f35c",
+        "voter_hash": "RLyLpgkpmKtACocZgB_zxs0rnvvO0l6iPW2GT0wFu6c",
+        "created_at": "2026-10-13 17:06:39"
+      },
+      {
+        "id": "6bf76397-a8ea-50da-9eb3-d9403940c685",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "0132e034-3a08-5bff-b202-444a902f9d79",
+        "voter_hash": "eVHhrpONRl3OBTnI1hofjvtq-_MDPTBcCc_smbir5rs",
+        "created_at": "2026-10-13 17:06:39"
+      },
+      {
+        "id": "03e17aab-cf2b-5a6f-b027-ec1bb8133110",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "YjSW4gur-iTXg3QstEHvqOg-68iqFj_dETEaHvRAdtQ",
+        "created_at": "2026-10-13 17:06:40"
+      },
+      {
+        "id": "37867f2a-afda-57b1-9b2e-c659a246ca22",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "YjSW4gur-iTXg3QstEHvqOg-68iqFj_dETEaHvRAdtQ",
+        "created_at": "2026-10-13 17:06:44"
+      },
+      {
+        "id": "83c2c45d-c471-5497-bff5-f3730bd77f53",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "eVHhrpONRl3OBTnI1hofjvtq-_MDPTBcCc_smbir5rs",
+        "created_at": "2026-10-13 17:06:44"
+      },
+      {
+        "id": "d80fc255-4b4d-5c81-bc83-d367d2d3a62c",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "RLyLpgkpmKtACocZgB_zxs0rnvvO0l6iPW2GT0wFu6c",
+        "created_at": "2026-10-13 17:06:48"
+      },
+      {
+        "id": "db238ff8-d565-5939-8743-3cab71f39a44",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "YjSW4gur-iTXg3QstEHvqOg-68iqFj_dETEaHvRAdtQ",
+        "created_at": "2026-10-13 17:06:53"
+      },
+      {
+        "id": "f161dd9e-8e08-5b09-a0ff-b393d860b6e6",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "RLyLpgkpmKtACocZgB_zxs0rnvvO0l6iPW2GT0wFu6c",
+        "created_at": "2026-10-13 17:06:53"
+      },
+      {
+        "id": "2f327982-42d8-5629-8653-98a2eca1557c",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "a8d19190-7ab2-5e39-8d2e-6413292f435b",
+        "voter_hash": "_8c0PJXQZHM_a3JO7jCWBuyINFFeqPR73XP1x_FFxq0",
+        "created_at": "2026-10-13 17:06:58"
+      },
+      {
+        "id": "bf4f848f-f075-5511-8c4d-5c7080ee3f1a",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "0132e034-3a08-5bff-b202-444a902f9d79",
+        "voter_hash": "iOKTwTMi-rk0QQZW0f-PMUfScFVVJwXo0AhF074wgB0",
+        "created_at": "2026-10-13 17:06:59"
+      },
+      {
+        "id": "cf7aba77-afcc-5cae-81ee-624fda4d9f9d",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "eVHhrpONRl3OBTnI1hofjvtq-_MDPTBcCc_smbir5rs",
+        "created_at": "2026-10-13 17:06:59"
+      },
+      {
+        "id": "c842316b-428d-54a5-9d61-e6248f1d0f0c",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "iOKTwTMi-rk0QQZW0f-PMUfScFVVJwXo0AhF074wgB0",
+        "created_at": "2026-10-13 17:07:08"
+      },
+      {
+        "id": "5ac47738-55c5-546a-81e6-967e8916eabf",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "_8c0PJXQZHM_a3JO7jCWBuyINFFeqPR73XP1x_FFxq0",
+        "created_at": "2026-10-13 17:07:09"
+      },
+      {
+        "id": "c0454e73-cdc7-52e1-95fd-e7e3bfad7503",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "iOKTwTMi-rk0QQZW0f-PMUfScFVVJwXo0AhF074wgB0",
+        "created_at": "2026-10-13 17:07:22"
+      },
+      {
+        "id": "0fa33596-4d7d-5077-bd6e-77c828056872",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "_8c0PJXQZHM_a3JO7jCWBuyINFFeqPR73XP1x_FFxq0",
+        "created_at": "2026-10-13 17:07:24"
+      },
+      {
+        "id": "71602e35-0ba7-578d-b746-c63d0c820756",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "X_42g_BUIMT-8Cofo0UqxUCVmIenAMNdv-HCA4OZd7o",
+        "created_at": "2026-10-13 17:07:27"
+      },
+      {
+        "id": "d53b0932-a20f-5aca-aacc-e0b8ca7a8ea0",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "3c31d287-be17-5e6e-a5c6-f410203714df",
+        "voter_hash": "X_42g_BUIMT-8Cofo0UqxUCVmIenAMNdv-HCA4OZd7o",
+        "created_at": "2026-10-13 17:07:32"
+      },
+      {
+        "id": "9bf3bd63-5e42-50b7-8429-043c1a7fa0b2",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "cd45d216-f1f6-5d09-9d78-0f21a376cf68",
+        "voter_hash": "A-7yi4nyT1pfzbSUGgJuFdzq4woStyXtM44qOtB9Vzo",
+        "created_at": "2026-10-13 17:07:44"
+      },
+      {
+        "id": "7697e05f-1eb8-581e-9e09-c7d9ea44287a",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "JaZbI8sQhDDGvsNUF5vcN47Fk1vhQEBfzv3pbJoDJWc",
+        "created_at": "2026-10-13 17:07:50"
+      },
+      {
+        "id": "7f9b7f4b-2c12-5495-a002-2c9a1ca9eacc",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "A-7yi4nyT1pfzbSUGgJuFdzq4woStyXtM44qOtB9Vzo",
+        "created_at": "2026-10-13 17:07:59"
+      },
+      {
+        "id": "cbe75888-1d90-5a99-a18d-5b2a3fd476a1",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "JaZbI8sQhDDGvsNUF5vcN47Fk1vhQEBfzv3pbJoDJWc",
+        "created_at": "2026-10-13 17:08:05"
+      },
+      {
+        "id": "a8e69123-665a-5816-bf0f-46d0859c8f59",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "jvYj8oURkBd84g9uzqmwSsxak4e6hanfZ_SYgHDguyM",
+        "created_at": "2026-10-13 17:08:06"
+      },
+      {
+        "id": "cb113706-6233-5921-82ee-fb48e21f765b",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "A-7yi4nyT1pfzbSUGgJuFdzq4woStyXtM44qOtB9Vzo",
+        "created_at": "2026-10-13 17:08:07"
+      },
+      {
+        "id": "9c552338-0ff8-59bd-afed-ad08167a7081",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "038ec8d2-143c-5421-85c7-7dc9a87b0155",
+        "voter_hash": "jvYj8oURkBd84g9uzqmwSsxak4e6hanfZ_SYgHDguyM",
+        "created_at": "2026-10-13 17:08:10"
+      },
+      {
+        "id": "d53115a3-da6d-5d9d-9c5b-43b63d863a63",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "JaZbI8sQhDDGvsNUF5vcN47Fk1vhQEBfzv3pbJoDJWc",
+        "created_at": "2026-10-13 17:08:18"
+      },
+      {
+        "id": "f775b777-3105-5c33-8a40-0022d8e115f6",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "-1SbFWQNa9r-zk4po3QxD91JK6Ez9Xt9Yt1-6Or_2DE",
+        "created_at": "2026-10-13 17:08:24"
+      },
+      {
+        "id": "533663b8-4e05-544f-9267-13f8742916bd",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "-1SbFWQNa9r-zk4po3QxD91JK6Ez9Xt9Yt1-6Or_2DE",
+        "created_at": "2026-10-13 17:08:37"
+      },
+      {
+        "id": "37d460d2-930c-5cee-b5c5-5d43fce73e9b",
+        "poll_id": "a92f6d13-7e40-4c8a-95b1-4d3e0c8f6a27",
+        "option_id": "5f8b93fc-e644-5ed9-94ec-25b06ebaf1e9",
+        "voter_hash": "-1SbFWQNa9r-zk4po3QxD91JK6Ez9Xt9Yt1-6Or_2DE",
+        "created_at": "2026-10-13 17:08:48"
+      },
+      {
+        "id": "ce64ba01-aff0-564b-96d9-7cb86de7c1de",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "0132e034-3a08-5bff-b202-444a902f9d79",
+        "voter_hash": "OqUnenBuclPS5nPsig0xE3MR8X5rte-V5ymspdfgfPE",
+        "created_at": "2026-10-13 17:09:25"
+      },
+      {
+        "id": "8371e308-abfb-538d-a426-c90237d08fb1",
+        "poll_id": "0b8c4e52-91d3-4a67-8f10-2c5d7a9e3b41",
+        "option_id": "43907c77-8064-5138-89f7-2089d99bb3ca",
+        "voter_hash": "gN-4QX7icBXIArcAFZowZMqPQHQkiHmqYNSD5g9cn6c",
+        "created_at": "2026-10-13 17:09:26"
+      },
+      {
+        "id": "e4ee72f5-0071-5705-857b-a83cad434d5d",
+        "poll_id": "5d1e7a90-3c28-4f5b-b6a4-8e0f12d9c7a3",
+        "option_id": "66c9d741-766b-5fa5-8215-9a98ef1e94b5",
+        "voter_hash": "OqUnenBuclPS5nPsig0xE3MR8X5rte-V5ymspdfgfPE",
+        "created_at": "2026-10-13 17:09:38"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "duration": 0.31,
+      "changes": 0,
+      "rows_read": 107,
+      "rows_written": 0,
+      "size_after": 163840,
+      "changed_db": false
+    }
+  }
+]
