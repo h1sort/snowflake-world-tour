@@ -1,12 +1,12 @@
 # Status: Snowflake World Tour CDMX talk (Tue 13 Oct 2026, 11:00 CST, 15 min)
 
-_Last updated: Mon 12 Oct 2026, 12:25 ET. Read this first when resuming._
+_Last updated: Mon 12 Oct 2026, 12:20 ET. Read this first when resuming._
 
 ## Done
 - **Deck (PowerPoint, official SWT26 template):** 13 slides + Spanish speaker notes, reviewed by an independent agent, all fixes applied. Source: `deck/src/` (unpacked pptx). Build: `deck/tools/pack.sh [OUT_DIR]` (pack + validate + render). Spec: `deck/BRIEF.md`.
   - Every Snowflake feature named on slide 5 is GA (verified on docs.snowflake.com 12 Oct 2026): Semantic Views, Cortex Agents, Cortex Analyst, AI_COMPLETE.
 - **Anatomy figure** (`assets/anatomy/`): interactive `machine.html` (published privately as the artifact "Contexto Juicio Acción"), slide renders `machine-slide.png` (pass) and `machine-slide-reject.png`.
-  - **Pending decision (Carlos):** swap it into slide 7 with labels (preview at `deck/out/slide7-anatomy-option.png`, recipe below). Current slide 7 = native-shape diagram.
+  - **On slide 7** (approved): figure + five labels; the native diagram stays in the slide as a hidden backup group `machine-fallback`.
 - **Demo contract:** `demo/CONTRACT.md` (object names, definitions, Act rules). Authoritative.
 - **Bridge D1 → Snowflake** (`demo/bridge/bridge.py`): done, 16 offline tests pass, `--mock` / `--once` / `--counts`. Reads D1 through Carlos's existing `npx wrangler` login. Hashes browser ids with a salt before upload.
 
@@ -21,8 +21,7 @@ _Last updated: Mon 12 Oct 2026, 12:25 ET. Read this first when resuming._
 1. **Create the poll group** at h1sort.com/polls with the 3 questions EXACTLY as in `demo/CONTRACT.md` → send the group code.
 2. **Snowflake:** `SELECT CURRENT_REGION()`; run `demo/snowflake/00_setup.sql` → `03_agent.sql` (ACCOUNTADMIN for 00); create TWO PATs (agent + loader, see README); **check the network policy allows the venue IP** (top risk); run `04_checks.sql`.
 3. **Laptop:** `cp demo/.env.example demo/.env`, fill it; `npx wrangler login`; `uv run demo/bridge/bridge.py --mock`, then `--once` for real.
-4. **Decide:** does `h1sort.com/snowflake` (QR on last slide) serve the slides PDF from the start of the talk, or only after? Any push to h1sort-website deploys production immediately, so that PR waits for his go.
-5. **Decide:** Anatomy figure on slide 7, yes/no.
+4. **Decided:** `h1sort.com/snowflake` serves the slides from the start. Page built and committed LOCALLY on h1sort-website branch `feat/snowflake-world-tour` (commit 7d357ea: `src/pages/snowflake.astro`, `public/snowflake/{diapositivas.pdf,maquina/,maquina.webp}`, llms.txt). Build passes; desktop + 390 px checked. NOT pushed: any push deploys production. Push when Carlos says, then open PR and merge.
 
 ## Still to build after the to-dos
 - h1sort-website PR: `/swt` → `/p/<GROUP_CODE>` redirect, `/snowflake` → slides PDF (needs decisions 1 and 4).
