@@ -659,8 +659,7 @@ def main(argv: list[str] | None = None) -> int:
     load_dotenv(args.env)  # real environment variables win over the file
     bridge, reporter, interval = build(args)
     if args.mock:
-        console.print("[bold yellow]\\[MODO ENSAYO][/] sin red: fixtures de demo/fixtures → SQLite local "
-                      f"({MOCK_SQLITE.relative_to(DEMO_DIR.parent)})")
+        console.print("[bold yellow]\\[MODO ENSAYO][/] sin red · fixtures → SQLite local")
     try:
         if args.counts:
             return run_counts(bridge, args.mock)

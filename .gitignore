@@ -223,3 +223,11 @@ __marimo__/
 deck/out/
 *.pdf
 .env
+
+# demo runtime
+demo/.env
+demo/bridge/mock_snowflake.sqlite
+demo/harness/.last_*.json
+demo/harness/stage.log
+demo/receipts.jsonl
+.pytest_cache/

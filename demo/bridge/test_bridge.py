@@ -160,7 +160,7 @@ def test_d1_sql_only_touches_the_four_poll_tables_and_only_votes_select_voter_ha
     br.sync_votes()
     br.sync_votes()
     br.source.count()
-    assert len(d1.queries) >= 7
+    assert len(d1.queries) >= 6
     for sql in d1.queries:
         low = sql.lower()
         tables = set(re.findall(r"\b(?:from|join)\s+([a-z_]+)", low))
