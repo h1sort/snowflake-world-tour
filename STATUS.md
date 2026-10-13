@@ -1,6 +1,6 @@
 # Status: Snowflake World Tour CDMX talk (Tue 13 Oct 2026, 11:00 CST, 15 min)
 
-_Last updated: Tue 13 Oct 2026, 03:45 CST. Read this first when resuming._
+_Last updated: Tue 13 Oct 2026, 05:50 CST. Read this first when resuming._
 
 ## The pivot (13 Oct, 03:36 CST, decided by Carlos)
 - **Live demo CUT** (not enough time to test). **Poll dropped.**
@@ -10,9 +10,10 @@ _Last updated: Tue 13 Oct 2026, 03:45 CST. Read this first when resuming._
 - Santander framing: **"así pensamos estas decisiones"** only; never claim what Santander runs in production.
 - Spec: `deck/BRIEF-v2.md` (overrides the slide-by-slide part of `deck/BRIEF.md`; hard rules in BRIEF.md still apply).
 
-## Deck state
-- 14 slides on the official SWT26 template; structure done and validated (commit 7d88467). Three agents filling copy/notes (A: 1,3,4,5,6 · B: 7,8,9 · C: 10–14).
-- After agents: independent review → fixes → export pptx + PDF → refresh h1sort.com/snowflake PDF.
+## Deck state: FINAL (05:50 CST)
+- 14 slides, Spanish notes on every slide (except Safe Harbor), independent review done and all fixes applied, package validates.
+- Exports (gitignored, regenerate with pack.sh): `deck/out/SWT26 CDMX - Carlos Haro - Confianza.pptx` and `.pdf` (PDF has no notes).
+- h1sort.com/snowflake updated with the final PDF and new page copy (branch push d9357cd).
 - Build: `deck/tools/pack.sh [OUT_DIR]`.
 
 ## Website
